@@ -48,12 +48,12 @@ def imToString(m):
     elif m == "chat":
         cap = pag.screenshot(region=(ww*3//4, 0, ww//4,wh//3))
     elif m == "ebutton":
-        cap = pag.screenshot(region=(ww//(2.65*xsm),wh//(20*ysm),ww//(21*xlm),wh//(17*ylm)))
-        cap.save("{}.png".format(sn))  
-        result = ocr.ocr("{}.png".format(sn),cls=False)[0]
-        result = sorted(result, key = lambda x: x[1][1], reverse = True)
-        os.remove("{}.png".format(sn))
         try:
+            cap = pag.screenshot(region=(ww//(2.65*xsm),wh//(20*ysm),ww//(21*xlm),wh//(17*ylm)))
+            cap.save("{}.png".format(sn))  
+            result = ocr.ocr("{}.png".format(sn),cls=False)[0]
+            result = sorted(result, key = lambda x: x[1][1], reverse = True)
+            os.remove("{}.png".format(sn))
             return result[0][1][0]
         except:
             return ""

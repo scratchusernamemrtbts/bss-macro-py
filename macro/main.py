@@ -1377,10 +1377,11 @@ async def asyncRejoin():
         rm = loadsettings.load()['rejoin_method']
         if rm == "new tab":
             webbrowser.open("https://docs.python.org/3/library/webbrowser.html", autoraise=True)
-            await asyncio.sleep(1)
+            await asyncio.sleep(2)
             with keyboard.pressed(Key.cmd):
                 keyboard.press('t')
                 keyboard.release('t')
+            await asyncio.sleep(3)
             keyboard.type(link)
             keyboard.press(Key.enter)
         else:
